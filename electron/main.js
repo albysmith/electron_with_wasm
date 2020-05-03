@@ -1,13 +1,28 @@
 const electron = require('electron');
+const fs = require("fs");
+var path = require('path');
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain: ipc } = require('electron');
+
+var documents = app.getPath('documents');
+var debug_path = path.join(documents,'Egosoft','X4');
+
+fs.readdir(debug_path, function(err, items) {
+  console.log(items);
+  for (var i=0; i<items.length; i++) {
+      debug_path = path.join(debug_path,items[i],'x4debug.log')
+  }
+});
+
 
 // const Handlebars = require("handlebars");
 require = require("esm")(module);
 // module.exports = require("./pkg/x4_debug_wasm")
-const wasm = require("../pkg/x4_debug_parser");
+global['wasm'] = require("../pkg/x4_debug_parser");
+console.log(wasm.greet());
 const hljs = require("highlight.js/lib/core");  // require only the core library
 hljs.registerLanguage('log', require('./local_modules/log'));
+
 
 
 function createWindow() {
@@ -24,6 +39,19 @@ function createWindow() {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
+  ipc.on('load-file', (event) => {
+    // dialog.showMessageBox(win, {
+    //   type: type,
+    //   buttons: [],
+    //   message: 'Hello, how are you?'
+    // });
+    let file_data = read_debug(debug_path);
+    win.webContents.send('print-debug', file_data);
+  });
+
+  ipc.on('set-debug-path', (event, path) => {
+    debug_path = path
+  });
 
   // Open the DevTools.
   //   win.webContents.openDevTools()
@@ -55,4 +83,8 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-
+function read_debug(path) {
+  let file_data = fs.readFileSync(path, { encoding: "utf8" });
+  return file_data
+  // send to wasm
+}
