@@ -8,16 +8,21 @@
   <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   <link rel="stylesheet" href="style/dark.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="node_modules/highlight.js/styles/darcula.css">
+  <link rel="stylesheet" href="style/syntax.css">
 </head>
 
 <body>
-  <input type="text" id="debug_path">
-  <button id="btn2">Set Path</button><br>
-  <button id="btn">Load Debug File</button>
-  <div>
+  <div class="sidenav">
+    <!-- <input type="text" id="debug_path">
+    <button id="btn2">Set Path</button><br> -->
+    <button id="btn">Load Debug File</button><br><br>
+    <div class="select-view" id="filter_buttons">
+    </div>
+  </div>
+  <div class="main">
     <pre><code id="app_view"></code></pre>
   </div>
+
   <script>
     require('./renderer.js');
   </script>

@@ -1,111 +1,124 @@
-/* ADDED BY ALBY */
-@font-face {
+/* @font-face {
     font-family: 'Roboto Medium';
     src: url('Roboto-Medium.ttf') format('truetype');
 }
-/* ADDED BY ALBY */
 @font-face {
-    font-family: 'Roboto Regular';
+    font-family: 'Roboto-Regular';
     src: url('Roboto-Regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Zekton';
+    src: url('zekton-rg.ttf') format('truetype');
+} */
 
 * {
     /* background: #F5F6F7; */
-    background: #3b434a;
+    background: #1E1E1E;
     font-size: 16;
-    font-family: "Roboto Medium", Fallback, sans-serif;
+    font-family: "Roboto-Regular", Fallback, sans-serif;
     /* icon-size: 16;
     icon-family: "Material Icons"; */
 }
 
 /* ADDED BY ALBY */
-i {
+/* i {
     size: 16;
-}
+} */
 
-window {
+/* window {
     background: #3b434a;
-}
+} */
 
 body {
-    color: #dfebf5;
+    color: #c1c6ca;
     font-size: 16;
-    font-family: "Roboto Regular", Fallback, sans-serif;
-    white-space: pre-wrap;
+    font-family: "Roboto-Regular", Fallback, sans-serif;
+    /* white-space: pre-wrap; */
 }
 
-check-box {
-    /* icon-size: 18; */
+pre {
+    /* white-space: pre-line; */
+}
+
+label {
+    text-decoration: underline;
+}
+
+/* check-box {
     background: transparent;
     border-radius: 2;
     border-width: 1;
     border-color: #adb3b8;
-    /* icon-color: transparent; */
-}
+} */
 
 /* ADDED BY ALBY */
-check-box.i {
+/* check-box.i {
     size: 18;
     color: transparent;
-}
+} */
 
-check-box:selected {
+/* check-box:selected {
     background: #efd035;
     border-color: #efd035;
-    /* icon-color: #3b434a; */
     color: #3b434a;
-}
+} */
 
-grid {
+/* grid {
     background: transparent;
-}
+} */
 
-switch {
+/* switch {
     width: 36;
     height: 32;
-}
+} */
 
-switch_track {
+/* switch_track {
     height: 14;
     border-radius: 7;
     background: #6C7A90;
-}
+} */
 
-switch_toggle {
+/* switch_toggle {
     width: 20;
     height: 20;
     border-radius: 10;
     background: white;
-}
+} */
 
-switch_toggle:selected {
+/* switch_toggle:selected {
     background: #F8DE4C;
-}
+} */
 
-button, toggle-button {
-    height: 36;
-    background: #647b91;
-    border-radius: 4;
+button, toggle-button, button:focus {
+    font-size: 18px;
+    height: 25px;
+    background-color: #647b91;
+    /* border-radius: 6px; */
+    border: none;
     font-family: "Roboto Medium", Fallback, sans-serif;
+    outline: none;
+    margin: 10px;
 }
 
-.single_content {
+/* .single_content {
     spacing: 0;
-}
+} */
 
 button.primary {
     background: #efd035;
     color: #3b434a;
     /* icon-color: #3b434a; */
+    outline: none;
 }
 
-button.i {
+/* button.i {
     color: #3b434a;
-}
+} */
 
 button:active, button.primary:active, button.square:active, toggle-button:active, toggle-button:selected {
     background: #516475;
     color: #dfebf5;
+    outline: none;
     /* icon-color: #dfebf5; */
 }
 
@@ -113,47 +126,49 @@ button:disabled, toggle-button:disabled {
     background: #7a7e81;
     color: #3b434a;
     /* icon-color: #3b434a; */
+    outline: none;
 }
 
 button.square {
     border-radius: 1;
+    outline: none;
 }
 
-container {
+/* container {
     padding: 4;
-}
+} */
 
-combo_box {
+/* combo_box {
     color: #dfebf5;
     background: #3b434a;
     border-color: #647b91;
     border-width: 1;
     border-radius: 3;
     padding: 6;
-}
+} */
 
-combo_box:selected {
+/* combo_box:selected {
     border-color: #f8de4c;
-}
+} */
 
-combo_box_item {
+/* combo_box_item {
     font-size: 12;
     color: #ccdeed;
     background: transparent;
     padding-left: 8;
     padding-right: 8;
-}
+} */
 
-combo_box_item:selected, combo_box_item:active {
+/* combo_box_item:selected, combo_box_item:active {
     color: #3b434a;
     background: #e1bc21;
-}
+} */
 
 .h1 {
     font-size: 24;
 }
 
-text_box {
+/* text_box {
     height: 32;
     color: #ccdeed;
     background: #3b434a;
@@ -161,87 +176,133 @@ text_box {
     border-width: 1;
     border-radius: 3;
     padding: 6;
-}
+} */
 
-popup {
+/* popup {
     background: #444e55;
     border-color: #647b91;
     border-width: 1;
     border-radius: 2;
-}
+} */
 
-menu {
+/* menu {
     background: #475b6e;
-}
+} */
 
-menuitem {
+/* menuitem {
     padding-left: 8;
     padding-right: 8;
     color: #9dafbf;
     font-size: 12;
-}
+} */
 
-text_box:empty {
+/* text_box:empty {
     color: #9E9E9E
-}
+} */
 
-text_box:focus {
+/* text_box:focus {
     border-color: #f8de4c;
-}
+} */
 
-cursor {
+/* cursor {
     opacity: 1.0;
     background: transparent;
-}
+} */
 
-cursor:focus {
+/* cursor:focus {
     background: #f8de4c;
-}
+} */
 
-cursor:expanded {
+/* cursor:expanded {
     opacity: 0.3;
-}
+} */
 
-debug-border {
+/* debug-border {
     border-width: 1;
     border-color: blue;
     background: transparent;
-}
+} */
 
-items-widget {
+/* items-widget {
     background: transparent;
     border-color: #647b91;
     border-width: 1;
     border-radius: 2;
     padding: 4;
-}
+} */
 
-list-view {
+/* list-view {
     background: transparent;
     border-color: #212121;
     border-width: 1;
     border-radius: 2;
-}
+} */
 
-list-view-item {
+/* list-view-item {
     font-size: 12;
     color: #ccdeed;
     background: transparent;
     padding-left: 8;
     padding-right: 8;
-}
+} */
 
-list-view-item:selected, list-view-item:active {
+/* list-view-item:selected, list-view-item:active {
     color: #3b434a;
     background: #e1bc21;
-}
+} */
 
-scroll-bar {
-    background: #647b91;
+.select-view {
+    /* background: transparent; */
+    background: transparent;
+    border-color: transparent;
+    border-width: 1;
     border-radius: 2;
+    margin-left: 10px;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    /* height: 90%; */
+    min-width: 100px;
+    outline: none;
 }
 
-blub {
+.select-view-item {
+    font-size: 16;
+    color: #ccdeed;
+    background: transparent;
+    padding-left: 8;
+    padding-right: 8;
+    /* width: 50px; */
+}
+
+/* .select-view-item:active {
+    color: #3b434a;
+    background: #e1bc21;
+    
+} */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+.sidenav::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    /* border-radius: 10px; */
+    /* background: #ddd; */
+}
+ 
+::-webkit-scrollbar-thumb {
+    /* border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);  */
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+/* blub {
     background: green;
 }
 
@@ -260,4 +321,44 @@ thumb {
 
 thumb:active {
     background: #e1bc21;
-}
+} */
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 180; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    /* background-color: #111; */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    align-items: center;
+  }
+  
+  /* The navigation menu links */
+  /* .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  } */
+  
+  /* When you mouse over the navigation links, change their color */
+  /* .sidenav a:hover {
+    color: #f1f1f1;
+  } */
+  
+  /* Style page content */
+  .main {
+    margin-left: 180px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

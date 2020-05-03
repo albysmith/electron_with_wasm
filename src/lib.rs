@@ -19,8 +19,8 @@ struct Entry {
     message: String,
 }
 
-#[derive(Default, Debug, Clone)]
-struct DataPerTag {
+#[derive(Default, Debug, Clone, Serialize, Deserialize)]
+struct StructData {
     tags: Vec<String>,
     data: Vec<Entry>,
 }
@@ -87,7 +87,7 @@ fn parse_debug(file_data: String) -> JsValue {
             message.push_str(&format!("{} ", word))
         }
     }
-    let rust_type = (tag_list, logdata);
+    let rust_type: StructData = StructData {tags: tag_list, data: logdata};
     let js_type = JsValue::from_serde(&rust_type);
     if let Ok(i) = js_type {
         return i;
@@ -122,3 +122,4 @@ fn set_entry_struct(
         tag: tag,
     })
 }
+

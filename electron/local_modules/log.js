@@ -128,21 +128,54 @@
 function accesslog(hljs) {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   var HTTP_VERBS = [
-    "GET", "POST", "HEAD", "PUT", "DELETE", "CONNECT", "OPTIONS", "PATCH", "TRACE"
+    "FL", "FLS"
   ];
+  // faction subgoals??
+  var KEYWORDS =
+    'FactionSubgoal_BuildStation';
+  // sector names
+    var BUILTINS =
+    '"Tharka\'s Cascade XV"';
+  var ATTR = 'null nil none'
   return {
-    name: 'Apache Access Log',
+    name: 'Log',
+    keywords: {
+      keyword:
+        KEYWORDS,
+      literal:
+        'xenon argon freesplit',
+      built_in:
+        BUILTINS,
+      attribute:
+        ATTR
+    },
     contains: [
       // IP
       {
         className: 'number',
         begin: '^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?\\b',
-        relevance:5
+        relevance: 5
       },
       // Other numbers
       {
         className: 'number',
         begin: '\\b\\d+\\b',
+        relevance: 0
+      },
+      // component IDs
+      {
+        className: 'meta',
+        begin: '\\b0x((?:[a-zA-Z]+[0-9]|[0-9]+[a-zA-Z])[a-zA-Z0-9]*)\\b',
+        relevance: 0
+      },
+      {
+        className: 'meta',
+        begin: '\\b0x\\d+\\b',
+        relevance: 0
+      },
+      {
+        className: 'meta',
+        begin: '\\b0x[A-Za-z]+\\b',
         relevance: 0
       },
       // Requests
@@ -154,7 +187,7 @@ function accesslog(hljs) {
         relevance: 5,
         contains: [{
           begin: 'HTTP/[12]\\.\\d',
-          relevance:5
+          relevance: 5
         }]
       },
       // Dates
