@@ -20,14 +20,20 @@ Ported by Fabrício Tavares de Oliveira
   
   /* component IDs */
   .hljs-meta {
-    color: #3e3185; 
+    color: #e7e2ab; 
   }
-
-  .hljs-string,
-  .hljs-symbol,
-  .hljs-template-variable,
+  /* non-tag things that have [] */
+  .hljs-string {
+    color: #2e5cdb;
+  }
+  .hljs-symbol {
+    color: #846bb1;
+  }
+  .hljs-template-variable {
+    color: #6bb182;
+  }
   .hljs-addition {
-    color: #756bb1;
+    color: #aab16b;
   }
 
   .hljs-template-tag {
@@ -38,13 +44,17 @@ Ported by Fabrício Tavares de Oliveira
   .hljs-quote {
     color: #636363;
   }
-  
+  /* numbers aka time */
   .hljs-number {
-    color: #83a58d;
+    color: #2787d6;
+    /* color: #83a58d; */
+  }
+
+  .hljs-literal {
+    color: #acdb8d
   }
 
   .hljs-regexp,
-  .hljs-literal,
   .hljs-bullet,
   .hljs-link {
     color: #31a354;
@@ -55,16 +65,21 @@ Ported by Fabrício Tavares de Oliveira
     color: #88f;
   }
   
-  
-  
+  /* tags */
+  .hljs-tag {
+    color: #ddb4e2;
+  }
+  /* md/ai/etc. */
+  .hljs-doctag {
+    color: rgb(193, 104, 252);
+  }
+
   .hljs-keyword,
   .hljs-selector-tag,
   .hljs-title,
   .hljs-section,
   .hljs-built_in,
-  .hljs-doctag,
   .hljs-type,
-  .hljs-tag,
   .hljs-name,
   .hljs-selector-id,
   .hljs-selector-class,

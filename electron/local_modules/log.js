@@ -134,7 +134,7 @@ function accesslog(hljs) {
   var KEYWORDS =
     'FactionSubgoal_BuildStation';
   // sector names
-    var BUILTINS =
+  var BUILTINS =
     '"Tharka\'s Cascade XV"';
   var ATTR = 'null nil none'
   return {
@@ -143,25 +143,18 @@ function accesslog(hljs) {
       keyword:
         KEYWORDS,
       literal:
-        'xenon argon freesplit',
+        'xenon XEN argon ARG freesplit alliance ALI antigone ANT buccaneers BUC' +
+        'civilian criminal hatikvah HAT holyorder HOL khaak KHK ministry MIN' +
+        'paranid PAR player scaleplate SCA teladi TEL court CAB fallensplit FAF' +
+        'freesplit FRF holyorderfanatic HOF smuggler split ZYA trinity TRI TEM' +
+        'RHA NHU CUB FZY BOR TER terran boron',
       built_in:
         BUILTINS,
       attribute:
         ATTR
     },
     contains: [
-      // IP
-      {
-        className: 'number',
-        begin: '^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?\\b',
-        relevance: 5
-      },
-      // Other numbers
-      {
-        className: 'number',
-        begin: '\\b\\d+\\b',
-        relevance: 0
-      },
+
       // component IDs
       {
         className: 'meta',
@@ -176,6 +169,22 @@ function accesslog(hljs) {
       {
         className: 'meta',
         begin: '\\b0x[A-Za-z]+\\b',
+        relevance: 0
+      },
+      // md. ai. etc.,
+      {
+        className: 'doctag',
+        begin: '\\bglobal\.[A-Za-z]+\\b',
+        relevance: 0
+      },
+      {
+        className: 'doctag',
+        begin: '\\bmd\.[A-Za-z]+\\b',
+        relevance: 0
+      },
+      {
+        className: 'doctag',
+        begin: '\\bai\.[A-Za-z]+\\b',
         relevance: 0
       },
       // Requests
@@ -200,12 +209,6 @@ function accesslog(hljs) {
         illegal: '\\n',
         relevance: 1
       },
-      {
-        className: 'string',
-        begin: /\[/, end: /\]/,
-        illegal: '\\n',
-        relevance: 0
-      },
       // User agent / relevance boost
       {
         className: 'string',
@@ -219,7 +222,58 @@ function accesslog(hljs) {
         begin: '"', end: '"',
         illegal: '\\n',
         relevance: 0
+      },
+      // anything in brackets that starts with md.
+      {
+        className: 'string',
+        begin: /\[md./, end: /\]/,
+        illegal: '\\n',
+        relevance: 0
+      },
+      // tags - currently anything in brackets that's not already colored.......
+      {
+        className: 'tag',
+        begin: /\[/, end: /\]/,
+        illegal: '\\. \\n',
+        relevance: 0
+      },
+      // IP
+      {
+        className: 'number',
+        begin: '^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(:\\d{1,5})?\\b',
+        relevance: 5
+      },
+      // Other numbers
+      {
+        className: 'number',
+        begin: '\\b\\d+\\b',
+        relevance: 0
+      },
+      // anything in angle brackets
+      {
+        className: 'tag',
+        begin: '<', end: '>',
+        illegal: '\\n',
+        contains: [
+          {
+            className: 'meta',
+            begin: '\\b0x((?:[a-zA-Z]+[0-9]|[0-9]+[a-zA-Z])[a-zA-Z0-9]*)\\b',
+            relevance: 0
+          },
+          {
+            className: 'meta',
+            begin: '\\b0x\\d+\\b',
+            relevance: 0
+          },
+          {
+            className: 'meta',
+            begin: '\\b0x[A-Za-z]+\\b',
+            relevance: 0
+          },
+        ]
+
       }
+
     ]
   };
 }
