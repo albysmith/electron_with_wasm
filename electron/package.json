@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "esm": "^3.2.25",
-    "highlight.js": "^10.0.1",
+    "highlight.js": "^10.1.2",
     "x4_debug_parser": "file:../pkg"
   }
 }
